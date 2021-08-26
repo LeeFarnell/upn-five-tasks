@@ -67,26 +67,40 @@ const createDeck = () => {
     return Object.values(results).includes(kind);
   };
 
-  console.log("4 Of A Kind: ", isOfKind(player1, 4));
-  console.log("3 Of A Kind: ", isOfKind(player1, 3));
-  console.log("One Pair: ", isOfKind(player1, 2));
+  console.log("P1 - 4 Of A Kind: ", isOfKind(player1, 4));
+  console.log("P1 - Full House: ", isOfKind(player1, 2 & 3));
+  console.log("P1 - 3 Of A Kind: ", isOfKind(player1, 3));
+  console.log("P1 - Two Pair: ", isOfKind(player1, 2 & 2));
+  console.log("P1 - One Pair: ", isOfKind(player1, 2));
 
-  console.log("4 Of A Kind: ", isOfKind(player2, 4));
-  console.log("3 Of A Kind: ", isOfKind(player2, 3));
-  console.log("One Pair: ", isOfKind(player2, 2));
+  console.log("P2 - 4 Of A Kind: ", isOfKind(player2, 4));
+  console.log("P2 - Full House: ", isOfKind(player2, 2 & 3));
+  console.log("P2 - 3 Of A Kind: ", isOfKind(player2, 3));
+  console.log("P2 - Two Pair: ", isOfKind(player2, 2 & 2));
+  console.log("P2 - One Pair: ", isOfKind(player2, 2));
 
-  let sequenceCounter = 1;
-  // const test = [5, 6, 7, 8, 9];
+  let p1SequenceCounter = 1;
+  let p2SequenceCounter = 1;
 
   player1.forEach((value, index) => {
     const nextValue = player1[index + 1];
     if (value - nextValue === -1) {
-      sequenceCounter++;
+      p1SequenceCounter++;
     }
   });
 
-  const hasSequence = sequenceCounter === 5;
-  console.log("Has A Straght: ", sequenceCounter, hasSequence);
+  const p1HasSequence = p1SequenceCounter === 5;
+  console.log("P1 - Has A Straght: ", p1SequenceCounter, p1HasSequence);
+
+  player2.forEach((value, index) => {
+    const nextValue = player2[index + 1];
+    if (value - nextValue === -1) {
+      p2SequenceCounter++;
+    }
+  });
+
+  const p2HasSequence = p2SequenceCounter === 5;
+  console.log("P2 - Has A Straght: ", p2SequenceCounter, p2HasSequence);
 };
 
 createDeck();
