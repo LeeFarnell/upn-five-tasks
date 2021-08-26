@@ -1,12 +1,12 @@
 // Task5 - Create a function to determine the winner of this card game.Two players are dealt five cards from a standard deck. The winner is the player with the best Hand.
 
-const A = 1;
+const A = 01;
 const J = 11;
 const Q = 12;
 const K = 13;
 
 const suits = ["spades", "diamonds", "clubs", "hearts"];
-const values = [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K];
+const values = [A, 02, 03, 04, 05, 06, 07, 08, 09, 10, J, Q, K];
 
 const player1 = [];
 const player2 = [];
@@ -43,8 +43,15 @@ const createDeck = () => {
     deck.shift();
   }
 
-  console.log(player1);
-  console.log(player2);
+  player1.sort(function (a, b) {
+    return a - b;
+  });
+  player2.sort(function (a, b) {
+    return a - b;
+  });
+
+  console.log("Player One:", player1);
+  console.log("Player Two:", player2);
 
   const isOfKind = (cards, kind) => {
     const results = cards.reduce((acc, card) => {
@@ -60,108 +67,26 @@ const createDeck = () => {
     return Object.values(results).includes(kind);
   };
 
-  console.log(isOfKind(player1, 4));
-  console.log(isOfKind(player1, 3));
-  console.log(isOfKind(player1, 2));
+  console.log("4 Of A Kind: ", isOfKind(player1, 4));
+  console.log("3 Of A Kind: ", isOfKind(player1, 3));
+  console.log("One Pair: ", isOfKind(player1, 2));
 
-  console.log(isOfKind(player2, 4));
-  console.log(isOfKind(player2, 3));
-  console.log(isOfKind(player2, 2));
+  console.log("4 Of A Kind: ", isOfKind(player2, 4));
+  console.log("3 Of A Kind: ", isOfKind(player2, 3));
+  console.log("One Pair: ", isOfKind(player2, 2));
+
+  let sequenceCounter = 1;
+  // const test = [5, 6, 7, 8, 9];
+
+  player1.forEach((value, index) => {
+    const nextValue = player1[index + 1];
+    if (value - nextValue === -1) {
+      sequenceCounter++;
+    }
+  });
+
+  const hasSequence = sequenceCounter === 5;
+  console.log("Has A Straght: ", sequenceCounter, hasSequence);
 };
 
 createDeck();
-
-//   // Rules
-//   /*
-//   hasFourOfAKind = false; //Four of a kind: Four cards of the same rank. COVERED
-//   hasThreeOfAKind = false; //Three of a kind:Three cards of the same rank. COVERED
-//   hasOnePair = false; //One pair:Two cards of a matching rank. COVERED
-//   hasTwoPairs = false; //Two pair:Two cards of a matching rank and another two cards of a different matching rank. COVERED
-//   hasFullHouse = false; //Full House:Three cards of the same rank, and two cards of a different matching rank. COVERED
-//   hasAStraight = false; //Straight:Five cards in sequence. COVERED
-//   */
-
-//   // const findPair = (deck) => {
-//     // deck = [1,2,2,3,4]
-//     // create a new object deckMap = { }
-//     // for each value in deck
-//     // deck[value] = deck[value] ? deck[value] + 1 : 1
-//     // deckMap = {
-//     //   1: 1,
-//     //   2: 2,
-//     //   3: 1,
-//     //   4: 1
-//     // }
-//     // deckValues = Object.keys(deckMap) // 1, 2, 3, 4
-
-//     /*
-
-//     deckValues.forEach((value) => {
-//       valueAmount = deckMap[deckValue]
-
-//       // ASSUMING WERE NOT TRACKING WHERE THERE IS MULTIPLE PAIRS
-
-//       // if our value is { Value: 3, Suit: 'diamonds' } we'd still have a map
-//       // EXTRA NOTE / THOUGHT it would be instead
-//           // deckMap = {
-//           //   '1-diamonds': 1,
-//           //   '2-clubs': 2,
-//           //   '3-spades': 1,
-//           //   '4-hearts': 1
-//           // }
-//         // Then when we we're checking values etc we'd need to substring the suite etc if we had to deal with the suite
-//         // Potentially something with a set?
-
-//       // Four of a kind
-//       if (deckMap[deckValue] === 4) {
-//         hasFourOfAKind = true
-//       }
-
-//       if === 3
-//         hasThreeOfAKind = true
-
-//       if === 2
-//         haOnePair = true
-//     })
-
-//     const pairsArray = deckValues.filter((value) => {
-//       return value === 2
-//     })
-
-//     if pairsArray.length == 2 ?
-//       hasTwoPairs = true
-
-//     hasFullHouse = hasThreeOfAKind && hasOnePair
-
-//     // Figuring out a sequence
-//     // e.g. deck = 6, 7, 8, 5, 4
-//     // Sort the array so we have deck = 4, 5, 6, 7, 8
-//     // const sequenceCounter
-//     // deck.forEach((value, index) => {
-//       /*
-//         // const nextValue = deck[index + 1]
-//         if (value - nextValue === -1) {
-//           sequenceCounter++
-//         }
-//       */
-//     // })
-
-//   // hasSequence = sequenceCounter === 5
-
-//     */
-//   }
-
-//   // const cards = () => {
-//   //   if (
-//   //     player1[0].Value === player1[1].Value ||
-//   //     player1[2].Value ||
-//   //     player1[3].Value ||
-//   //     player1[4].Value
-//   //   ) {
-//   //     console.log("Pair");
-//   //   } else {
-//   //     console.log("Not A Pair");
-//   //   }
-//   // };
-//   // player1.map(cards);
-// };
