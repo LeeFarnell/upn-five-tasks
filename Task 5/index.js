@@ -68,13 +68,13 @@ const createDeck = () => {
   };
 
   console.log("P1 - 4 Of A Kind: ", isOfKind(player1, 4));
-  console.log("P1 - Full House: ", isOfKind(player1, 2 & 3));
+  console.log("P1 - Full House: ", isOfKind(player1, 2 && 3));
   console.log("P1 - 3 Of A Kind: ", isOfKind(player1, 3));
   console.log("P1 - Two Pair: ", isOfKind(player1, 2 & 2));
   console.log("P1 - One Pair: ", isOfKind(player1, 2));
 
   console.log("P2 - 4 Of A Kind: ", isOfKind(player2, 4));
-  console.log("P2 - Full House: ", isOfKind(player2, 2 & 3));
+  console.log("P2 - Full House: ", isOfKind(player2, 2 && 3));
   console.log("P2 - 3 Of A Kind: ", isOfKind(player2, 3));
   console.log("P2 - Two Pair: ", isOfKind(player2, 2 & 2));
   console.log("P2 - One Pair: ", isOfKind(player2, 2));
