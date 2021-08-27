@@ -1,0 +1,25 @@
+{
+  "name": "upn-five-tasks",
+  "version": "1.0.0",
+  "description": "![Licence Badge](https://img.shields.io/badge/licence-MIT-green)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "test:watch": "jest --verbose --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeFarnell/upn-five-tasks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeeFarnell/upn-five-tasks/issues"
+  },
+  "homepage": "https://github.com/LeeFarnell/upn-five-tasks#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "jest": "^27.0.6"
+  }
+}
